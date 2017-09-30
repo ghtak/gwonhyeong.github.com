@@ -1,0 +1,28 @@
+# Site settings
+title: devlogs
+header-img: img/home-bg.jpg
+email: gwonhyeong.t@gmail.com
+copyright_name: gwonhyeong / home / home
+description: "gwonhyeong's blog"
+baseurl: ""
+url: "http://gwonhyeong.github.io"
+github_username:  gwonhyeong
+#twitter_username:
+#facebook_username:  gwonhyeong
+email_username: gwonhyeong.t@gmail.com
+
+# Google Analytics
+# To enable google analytics, uncomment below line with a valid Google Tracking ID
+# google_tracking_id:
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
+
+#
+excerpt_separator: "" # Workaround for http://blog.slaks.net/2013-08-09/jekyll-tag-was-never-closed/

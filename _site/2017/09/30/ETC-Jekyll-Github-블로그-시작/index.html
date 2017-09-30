@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="gwonhyeong's blog">
+
+    <title>[ETC] Jekyll Blog 시작 - devlogs</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">devlogs</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+				
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+				
+                
+				
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+				
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>[ETC] Jekyll Blog 시작</h1>
+                    
+                    <h2 class="subheading">블로그 시작</h2>
+                    
+                    <span class="meta">Posted by gwonhyeong on September 30, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>작업물 기록및 정리용 블로그</p>
+
+<p>코드 예제</p>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">{% highlight c++ %}
+
+
+#include <span class="nt">&lt;iostream&gt;</span>
+
+template <span class="nt">&lt;</span> <span class="nt">typename</span> <span class="na">T</span> <span class="nt">&gt;</span>
+class handler {
+public:
+  handler( T<span class="err">&amp;&amp;</span> h ) : _handler(std::move(h)){
+  }
+  ~handler( void ) {}
+private:
+  T _handler;
+}
+
+
+{% endhighlight %}</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;iostream&gt;
+</span>
+
+<span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">handler</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">handler</span><span class="p">(</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">h</span> <span class="p">)</span> <span class="o">:</span> <span class="n">_handler</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">h</span><span class="p">)){</span>
+  <span class="p">}</span>
+  <span class="o">~</span><span class="n">handler</span><span class="p">(</span> <span class="kt">void</span> <span class="p">)</span> <span class="p">{}</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">T</span> <span class="n">_handler</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<hr />
+
+<p>문단</p>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>문단<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<p>문단</p>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"section-heading"</span><span class="nt">&gt;</span>소제목<span class="nt">&lt;/h2&gt;</span></code></pre></figure>
+
+<h2 class="section-heading">소제목</h2>
+
+<hr />
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"section-heading"</span><span class="nt">&gt;</span>소제목<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/img/home-bg.jpg"</span> <span class="na">alt=</span><span class="s">"Post Sample Image"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caption text-muted"</span><span class="nt">&gt;</span>이미지 설명<span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;blockquote&gt;</span>인용문<span class="nt">&lt;/blockquote&gt;</span></code></pre></figure>
+
+<p><a href="#">
+    <img src="/img/home-bg.jpg" alt="Post Sample Image" />
+</a>
+<span class="caption text-muted">이미지 설명</span></p>
+
+<blockquote>인용문</blockquote>
+
+<hr />
+
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/gwonhyeong">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="mailto:gwonhyeong.t@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; gwonhyeong / home / home 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+    
+
+
+</body>
+
+</html>
