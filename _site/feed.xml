@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-30T12:07:04+09:00</updated><id>http://localhost:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[ETC] Jekyll Blog 시작</title><link href="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[ETC] Jekyll Blog 시작" /><published>2017-09-30T09:00:00+09:00</published><updated>2017-09-30T09:00:00+09:00</updated><id>http://localhost:4000/2017/09/30/[ETC] Jekyll - Github 블로그 시작</id><content type="html" xml:base="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">&lt;p&gt;작업물 기록및 정리용 블로그&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-29T18:44:42+09:00</updated><id>http://localhost:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[ETC] vscode build setting</title><link href="http://localhost:4000/2017/10/29/ETC-vscode/" rel="alternate" type="text/html" title="[ETC] vscode build setting" /><published>2017-10-29T09:00:00+09:00</published><updated>2017-10-29T09:00:00+09:00</updated><id>http://localhost:4000/2017/10/29/[ETC] vscode</id><content type="html" xml:base="http://localhost:4000/2017/10/29/ETC-vscode/">&lt;p&gt;Windows 환경에서 Visual Studio Code 를 이용한 c++ Build 환경 설정&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Visual Studio Code 설치&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CMake 설치&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://landinghub.visualstudio.com/visual-cpp-build-tools&quot;&gt;Visual Studio Build Tools 설치&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Visual Studio Code - CMakeTools 확장 설치&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;VSCode 에서 Ctrl + , 를 이용하여 CMakeTools 의 다음 설정을 override&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; {
+    &quot;cmake.generator&quot;: &quot;Visual Studio 15 2017&quot;,
+ }&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Build!&lt;/p&gt;</content><author><name>gwonhyeong</name></author></entry><entry><title>[ETC] Jekyll Blog 시작</title><link href="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[ETC] Jekyll Blog 시작" /><published>2017-09-30T09:00:00+09:00</published><updated>2017-09-30T09:00:00+09:00</updated><id>http://localhost:4000/2017/09/30/[ETC] Jekyll - Github 블로그 시작</id><content type="html" xml:base="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">&lt;p&gt;작업물 기록및 정리용 블로그&lt;/p&gt;
 
 &lt;p&gt;코드 예제&lt;/p&gt;
 
