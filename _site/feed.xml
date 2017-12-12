@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-29T18:44:42+09:00</updated><id>http://localhost:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[ETC] vscode build setting</title><link href="http://localhost:4000/2017/10/29/ETC-vscode/" rel="alternate" type="text/html" title="[ETC] vscode build setting" /><published>2017-10-29T09:00:00+09:00</published><updated>2017-10-29T09:00:00+09:00</updated><id>http://localhost:4000/2017/10/29/[ETC] vscode</id><content type="html" xml:base="http://localhost:4000/2017/10/29/ETC-vscode/">&lt;p&gt;Windows 환경에서 Visual Studio Code 를 이용한 c++ Build 환경 설정&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.0">Jekyll</generator><link href="http://192.168.1.10:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://192.168.1.10:4000/" rel="alternate" type="text/html" /><updated>2017-12-12T23:08:01+09:00</updated><id>http://192.168.1.10:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[c++] concept</title><link href="http://192.168.1.10:4000/2017/12/12/cpp-concept/" rel="alternate" type="text/html" title="[c++] concept" /><published>2017-12-12T09:00:00+09:00</published><updated>2017-12-12T09:00:00+09:00</updated><id>http://192.168.1.10:4000/2017/12/12/[cpp] concept</id><content type="html" xml:base="http://192.168.1.10:4000/2017/12/12/cpp-concept/">&lt;p&gt;http://en.cppreference.com/w/cpp/language/constraints&lt;/p&gt;
+
+&lt;p&gt;template type 의 named set of requirements&lt;/p&gt;
+
+&lt;p&gt;선언형식은 다음과 같으며&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;constrainte&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;사용방법은 다음과 같다&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;or&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// constraned c++20 function template
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;cppreference 의 예제 코드는 이 포스팅을 작성할 시점에 다음과 같이 수정해야 작동한다.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;string&amp;gt;
+#include &amp;lt;locale&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;literals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+&lt;span class=&quot;c1&quot;&gt;// Declaration of the concept &quot;EqualityComparable&quot;, which is satisfied by
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// any type T such that for values a and b of type T,
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// the expression a==b compiles and 
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// its result is convertible to bool
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;concept&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EqualityComparable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+   
+&lt;span class=&quot;c1&quot;&gt;// template&amp;lt;EqualityComparable T&amp;gt; void f(T&amp;amp;&amp;amp;); 
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// constrained C++20 function template
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typename&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EqualityComparable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// long form of the same
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// void f(EqualityComparable&amp;amp;&amp;amp;); 
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// short form of the same (Concepts TS only, not C++20)
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// OK, std::string is EqualityComparable
+&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//f(std::use_facet&amp;lt;std::ctype&amp;lt;char&amp;gt;&amp;gt;(std::locale{})); // Error: not EqualityComparable 
+&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;c++11 부터 반영예정 이었던것 같은데 결국 c++20 에 포함예정인듯&lt;/p&gt;
+
+&lt;p&gt;g++ 에서 빌드 가능하며 -std=c++17 -fconcepts 옵션을 추가해야한다.&lt;/p&gt;
+
+&lt;p&gt;명확히 사용할 시점에 추가 정리할 것&lt;/p&gt;</content><author><name>gwonhyeong</name></author></entry><entry><title>[ETC] vscode build setting</title><link href="http://192.168.1.10:4000/2017/10/29/ETC-vscode/" rel="alternate" type="text/html" title="[ETC] vscode build setting" /><published>2017-10-29T09:00:00+09:00</published><updated>2017-10-29T09:00:00+09:00</updated><id>http://192.168.1.10:4000/2017/10/29/[ETC] vscode</id><content type="html" xml:base="http://192.168.1.10:4000/2017/10/29/ETC-vscode/">&lt;p&gt;Windows 환경에서 Visual Studio Code 를 이용한 c++ Build 환경 설정&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -22,7 +84,7 @@
     &quot;cmake.generator&quot;: &quot;Visual Studio 15 2017&quot;,
  }&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Build!&lt;/p&gt;</content><author><name>gwonhyeong</name></author></entry><entry><title>[ETC] Jekyll Blog 시작</title><link href="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[ETC] Jekyll Blog 시작" /><published>2017-09-30T09:00:00+09:00</published><updated>2017-09-30T09:00:00+09:00</updated><id>http://localhost:4000/2017/09/30/[ETC] Jekyll - Github 블로그 시작</id><content type="html" xml:base="http://localhost:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">&lt;p&gt;작업물 기록및 정리용 블로그&lt;/p&gt;
+&lt;p&gt;Build!&lt;/p&gt;</content><author><name>gwonhyeong</name></author></entry><entry><title>[ETC] Jekyll Blog 시작</title><link href="http://192.168.1.10:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[ETC] Jekyll Blog 시작" /><published>2017-09-30T09:00:00+09:00</published><updated>2017-09-30T09:00:00+09:00</updated><id>http://192.168.1.10:4000/2017/09/30/[ETC] Jekyll - Github 블로그 시작</id><content type="html" xml:base="http://192.168.1.10:4000/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">&lt;p&gt;작업물 기록및 정리용 블로그&lt;/p&gt;
 
 &lt;p&gt;코드 예제&lt;/p&gt;
 

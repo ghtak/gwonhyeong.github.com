@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="gwonhyeong's blog">
 
-    <title>[ETC] vscode build setting - devlogs</title>
+    <title>[c++] concept - devlogs</title>
 
-    <link rel="canonical" href="http://192.168.1.10:4000/2017/10/29/ETC-vscode/">
+    <link rel="canonical" href="http://192.168.1.10:4000/2017/12/12/cpp-concept/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -87,11 +87,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>[ETC] vscode build setting</h1>
+                    <h1>[c++] concept</h1>
                     
-                    <h2 class="subheading"></h2>
+                    <h2 class="subheading">c++ concept</h2>
                     
-                    <span class="meta">Posted by gwonhyeong on October 29, 2017</span>
+                    <span class="meta">Posted by gwonhyeong on December 12, 2017</span>
                 </div>
             </div>
         </div>
@@ -104,32 +104,69 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Windows 환경에서 Visual Studio Code 를 이용한 c++ Build 환경 설정</p>
+				<p>http://en.cppreference.com/w/cpp/language/constraints</p>
 
-<ol>
-  <li>
-    <p>Visual Studio Code 설치</p>
-  </li>
-  <li>
-    <p>CMake 설치</p>
-  </li>
-  <li>
-    <p><a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual Studio Build Tools 설치</a></p>
-  </li>
-  <li>
-    <p>Visual Studio Code - CMakeTools 확장 설치</p>
-  </li>
-  <li>
-    <p>VSCode 에서 Ctrl + , 를 이용하여 CMakeTools 의 다음 설정을 override</p>
-  </li>
-</ol>
+<p>template type 의 named set of requirements</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"> {
-    "cmake.generator": "Visual Studio 15 2017",
- }</code></pre></figure>
+<p>선언형식은 다음과 같으며</p>
 
-<p>Build!</p>
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">template</span><span class="o">-</span><span class="n">parameter</span><span class="o">-</span><span class="n">list</span> <span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="o">=</span> <span class="n">constrainte</span><span class="o">-</span><span class="n">expression</span><span class="p">;</span></code></pre></figure>
 
+<p>사용방법은 다음과 같다</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span>
+<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">);</span>
+
+<span class="n">or</span>
+
+<span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
+<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">)</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span><span class="p">;</span>
+
+<span class="c1">// constraned c++20 function template
+</span><span class="k">template</span> <span class="o">&lt;</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="n">T</span> <span class="o">&gt;</span>
+<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">);</span></code></pre></figure>
+
+<p>cppreference 의 예제 코드는 이 포스팅을 작성할 시점에 다음과 같이 수정해야 작동한다.</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;string&gt;
+#include &lt;locale&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
+ 
+<span class="c1">// Declaration of the concept "EqualityComparable", which is satisfied by
+</span>
+<span class="c1">// any type T such that for values a and b of type T,
+</span>
+<span class="c1">// the expression a==b compiles and 
+</span>
+<span class="c1">// its result is convertible to bool
+</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="kt">bool</span> <span class="n">EqualityComparable</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+   
+<span class="c1">// template&lt;EqualityComparable T&gt; void f(T&amp;&amp;); 
+</span>
+<span class="c1">// constrained C++20 function template
+</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="n">requires</span> <span class="n">EqualityComparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{}</span><span class="c1">// long form of the same
+</span>
+<span class="c1">// void f(EqualityComparable&amp;&amp;); 
+</span>
+<span class="c1">// short form of the same (Concepts TS only, not C++20)
+</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="s">"abc"</span><span class="n">s</span><span class="p">);</span> <span class="c1">// OK, std::string is EqualityComparable
+</span>
+  <span class="c1">//f(std::use_facet&lt;std::ctype&lt;char&gt;&gt;(std::locale{})); // Error: not EqualityComparable 
+</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>c++11 부터 반영예정 이었던것 같은데 결국 c++20 에 포함예정인듯</p>
+
+<p>g++ 에서 빌드 가능하며 -std=c++17 -fconcepts 옵션을 추가해야한다.</p>
+
+<p>명확히 사용할 시점에 추가 정리할 것</p>
 
 
                 <hr>
@@ -137,13 +174,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/" data-toggle="tooltip" data-placement="top" title="[ETC] Jekyll Blog 시작">&larr; Previous Post</a>
+                        <a href="/2017/10/29/ETC-vscode/" data-toggle="tooltip" data-placement="top" title="[ETC] vscode build setting">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2017/12/12/cpp-concept/" data-toggle="tooltip" data-placement="top" title="[c++] concept">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
