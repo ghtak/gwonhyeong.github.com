@@ -48,12 +48,16 @@ public:
         auto buf_ptr = std::make_shared<boost::asio::streambuf >();
         boost::asio::async_read_until( _socket 
             , *buf_ptr 
-            , std::string( "\n") 
+            , std::string( "\r\n") 
             , [this,self,buf_ptr]( boost::system::error_code ec , std::size_t read_sz ){
                 if( ec || read_sz == 0 ) return;
-                const char* cmd = boost::asio::buffer_cast<const char*>( buf_ptr->data());
-                switch( cmd[0] ) {
-                    case '0': _write_bufs.push_back(buf_ptr); break;
+                std::istream is( buf_ptr.get());
+                char cmd;
+                is >> cmd;
+                switch( cmd ) {
+                    case '0': 
+                        _write_bufs.push_back(buf_ptr);
+                         break;
                     case '1': this->write_remains(); break;
                     case '2': this->write_remains_cont();break;
                     case '3': return;
@@ -67,8 +71,6 @@ public:
         for ( auto& i : _write_bufs ) {
             bufs.push_back( i->data());
         }
-        // 2번에 나누어 전송하도록 테스트 
-
         bufs.back() = boost::asio::buffer( 
             boost::asio::buffer_cast<const char*>(bufs.back())
             , boost::asio::buffer_size(bufs.back()) - 2 );
