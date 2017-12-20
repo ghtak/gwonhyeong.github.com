@@ -9,9 +9,7 @@ header-img: "img/home-bg.jpg"
 
 boost::asio tcp 샘플 코드
 
-telnet client echo 기능및 write 흐름 제어 기능 확인용도
-
-telnet 에서 
+telnet client 용 echo 기능 및 write 흐름 제어 기능 확인용도
 
 0으로 시작한 문자열은 저장
 
@@ -70,7 +68,7 @@ public:
             bufs.push_back( i->data());
         }
         // 2번에 나누어 전송하도록 테스트 
-        
+
         bufs.back() = boost::asio::buffer( 
             boost::asio::buffer_cast<const char*>(bufs.back())
             , boost::asio::buffer_size(bufs.back()) - 2 );
@@ -148,5 +146,18 @@ int main() {
     }
     return 0;
 }
+
+{% endhighlight %}
+
+{% highlight cmake %}
+
+project( asio.echo )
+
+file(GLOB_RECURSE SRCS "*.cpp" )
+add_executable( asio.echo ${SRCS} )
+
+if(Boost_FOUND)
+    target_link_libraries( asio.echo ${Boost_LIBRARIES})
+endif()
 
 {% endhighlight %}
