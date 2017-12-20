@@ -10,7 +10,7 @@
 
     <title>[c++] concept - devlogs</title>
 
-    <link rel="canonical" href="http://192.168.1.10:4000/2017/12/12/cpp-concept/">
+    <link rel="canonical" href="http://localhost:4000/2017/12/12/cpp-concept.1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -33,7 +33,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link type="application/atom+xml" rel="alternate" href="http://192.168.1.10:4000/feed.xml" title="" />
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="" />
 
 </head>
 
@@ -111,27 +111,30 @@
 <p>선언형식은 다음과 같으며</p>
 
 <figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">template</span><span class="o">-</span><span class="n">parameter</span><span class="o">-</span><span class="n">list</span> <span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="o">=</span> <span class="n">constrainte</span><span class="o">-</span><span class="n">expression</span><span class="p">;</span></code></pre></figure>
+<span class="n">concept</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="o">=</span> <span class="n">constraint</span><span class="o">-</span><span class="n">expression</span><span class="p">;</span></code></pre></figure>
 
 <p>사용방법은 다음과 같다</p>
 
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span>
-<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">);</span>
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">T</span> <span class="n">param</span> <span class="p">);</span>
 
 <span class="n">or</span>
 
 <span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
-<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">)</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span><span class="p">;</span>
+<span class="kt">void</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">T</span> <span class="n">param</span> <span class="p">)</span> <span class="n">requires</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
 
 <span class="c1">// constraned c++20 function template
-</span><span class="k">template</span> <span class="o">&lt;</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="n">T</span> <span class="o">&gt;</span>
-<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">param</span> <span class="p">);</span></code></pre></figure>
+</span>
+<span class="k">template</span> <span class="o">&lt;</span> <span class="n">concept</span><span class="o">-</span><span class="n">name</span> <span class="n">T</span> <span class="o">&gt;</span>
+<span class="n">R</span> <span class="n">function_name</span><span class="p">(</span> <span class="n">T</span> <span class="n">param</span> <span class="p">);</span></code></pre></figure>
 
 <p>cppreference 의 예제 코드는 이 포스팅을 작성할 시점에 다음과 같이 수정해야 작동한다.</p>
 
 <figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;string&gt;
-#include &lt;locale&gt;
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
+</span>
+<span class="cp">#include &lt;locale&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">literals</span><span class="p">;</span>
  
 <span class="c1">// Declaration of the concept "EqualityComparable", which is satisfied by
 </span>
@@ -166,8 +169,6 @@
 
 <p>g++ 에서 빌드 가능하며 -std=c++17 -fconcepts 옵션을 추가해야한다.</p>
 
-<p>명확히 사용할 시점에 추가 정리할 것</p>
-
 
                 <hr>
 
@@ -177,6 +178,10 @@
                         <a href="/2017/10/29/ETC-vscode/" data-toggle="tooltip" data-placement="top" title="[ETC] vscode build setting">&larr; Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/2017/12/20/cpp-boost-asio-tcp-example/" data-toggle="tooltip" data-placement="top" title="[c++] boost::asio tcp example">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 

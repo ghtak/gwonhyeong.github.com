@@ -16,7 +16,7 @@ template type 의 named set of requirements
 {% highlight c++ %}
 
 template < template-parameter-list >
-concept concept-name = constrainte-expression;
+concept concept-name = constraint-expression;
 
 {% endhighlight %}
 
@@ -24,17 +24,18 @@ concept concept-name = constrainte-expression;
 
 {% highlight c++ %}
 
-template < typename T > requires concept-name
-R function_name( param );
+template < typename T > requires concept-name<T>
+void function_name( T param );
 
 or
 
 template < typename T >
-R function_name( param ) requires concept-name;
+void function_name( T param ) requires concept-name<T>
 
 // constraned c++20 function template
+
 template < concept-name T >
-R function_name( param );
+R function_name( T param );
 
 {% endhighlight %}
 
@@ -44,7 +45,9 @@ cppreference 의 예제 코드는 이 포스팅을 작성할 시점에 다음과
 {% highlight c++ %}
 
 #include <string>
+
 #include <locale>
+
 using namespace std::literals;
  
 // Declaration of the concept "EqualityComparable", which is satisfied by
@@ -81,5 +84,3 @@ int main() {
 c++11 부터 반영예정 이었던것 같은데 결국 c++20 에 포함예정인듯
 
 g++ 에서 빌드 가능하며 -std=c++17 -fconcepts 옵션을 추가해야한다.
-
-명확히 사용할 시점에 추가 정리할 것
