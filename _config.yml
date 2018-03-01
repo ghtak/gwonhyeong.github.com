@@ -1,7 +1,7 @@
 # Site settings
 title: devlogs
 header-img: img/home-bg.jpg
-email: gwonhyeong.t@gmail.com
+email: gwonhyeong.tak@gmail.com
 copyright_name: gwonhyeong / home / home
 description: "gwonhyeong's blog"
 baseurl: ""
@@ -9,7 +9,7 @@ url: "http://gwonhyeong.github.io"
 github_username:  gwonhyeong
 #twitter_username:
 #facebook_username:  gwonhyeong
-email_username: gwonhyeong.t@gmail.com
+email_username: gwonhyeong.tak@gmail.com
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
