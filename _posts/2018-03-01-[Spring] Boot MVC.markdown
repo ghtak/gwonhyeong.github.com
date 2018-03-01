@@ -91,14 +91,14 @@ WEB-INF/views 디렉터리를 src/main/webapp 에 추가 및
 테스트용 hello.jsp 생성
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/dir.png" alt="Directory Structure">
+    <img src="{{ site.baseurl }}/img/2018_03_01/dir.png" alt="Directory Structure">
 </a>
 
 
 http://localhost:8080/hello 에 접속하여 동작 확인
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/hello.png" alt="">
+    <img src="{{ site.baseurl }}/img/2018_03_01/hello.png" alt="">
 </a>
 
 
@@ -377,5 +377,5 @@ hello.jsp
 {% endhighlight %}
 
 <a href="#">
-    <img src="{{ site.baseurl }}/img/mybatis.png" alt="Directory Structure">
+    <img src="{{ site.baseurl }}/img/2018_03_01/mybatis.png" alt="Directory Structure">
 </a>
