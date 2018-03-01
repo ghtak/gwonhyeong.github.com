@@ -308,18 +308,15 @@ mybatis-config.xml
 
 //------------------------------------------------------
 mapper/board.xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-    <typeAliases>
-        <package name="org.codex.mybatis.domain"/>
-    </typeAliases>
-    <mappers>
-        <mapper resource="mapper/board.xml"/>
-    </mappers>
-</configuration>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.codex.mybatis.mapper.BoardMapper">
+    <select id="getBoardLists" resultType="Board">
+        SELECT * FROM board
+    </select>
+</mapper>
 
 
 {% endhighlight %}

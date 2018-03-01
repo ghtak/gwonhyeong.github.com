@@ -364,18 +364,15 @@ create table BOARD(
 
 //------------------------------------------------------
 mapper/board.xml
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
-<span class="cp">&lt;!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span>
-<span class="nt">&lt;configuration&gt;</span>
-    <span class="nt">&lt;typeAliases&gt;</span>
-        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">"org.codex.mybatis.domain"</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/typeAliases&gt;</span>
-    <span class="nt">&lt;mappers&gt;</span>
-        <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">"mapper/board.xml"</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/mappers&gt;</span>
-<span class="nt">&lt;/configuration&gt;</span></code></pre></figure>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span>
+
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">"org.codex.mybatis.mapper.BoardMapper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"getBoardLists"</span> <span class="na">resultType=</span><span class="s">"Board"</span><span class="nt">&gt;</span>
+        SELECT * FROM board
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span></code></pre></figure>
 
 <p>HelloController 로 테스트</p>
 
