@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Spring] Boot MVC"
+title:      "[web] Spring Boot MVC"
 subtitle:   "Boot MVC"
 date:       2018-03-01 00:00:00
 author:     "gwonhyeong"

@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://localhost:4000/2018/03/01/Spring-Boot-MVC/</loc>
+        <loc>http://localhost:4000/2018/03/01/web-Boot-+-Vue.js/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/2018/03/01/web-Spring-Boot-MVC.1/</loc>
     </url>
     
     <url>

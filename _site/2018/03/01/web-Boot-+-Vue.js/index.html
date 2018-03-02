@@ -23,9 +23,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="gwonhyeong's blog">
 
-    <title>devlogs</title>
+    <title>[web] Spring Boot + Vue.js - devlogs</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/2018/03/01/web-Boot-+-Vue.js/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href=" /css/bootstrap.min.css ">
@@ -95,103 +95,125 @@
 </nav>
 
 
-    <!-- Page Header -->
+    <!-- Post Header -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>devlogs</h1>
-                    <hr class="small">
-                    <span class="subheading">personal logs</span>
+                <div class="post-heading">
+                    <h1>[web] Spring Boot + Vue.js</h1>
+                    
+                    <h2 class="subheading">Boot + Vue.js</h2>
+                    
+                    <span class="meta">Posted by gwonhyeong on March 1, 2018</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
-<div class="post-preview">
-    <a href="/2018/03/01/web-Boot-+-Vue.js/">
-        <h2 class="post-title">            [web] Spring Boot + Vue.js
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Boot + Vue.js
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by gwonhyeong on March 1, 2018</p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<div class="post-preview">
-    <a href="/2018/03/01/web-Spring-Boot-MVC.1/">
-        <h2 class="post-title">            [web] Spring Boot MVC
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Boot MVC
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by gwonhyeong on March 1, 2018</p>
-</div>
-<hr>
+				<p>Spring Boot + Vue.js 연동</p>
 
-<div class="post-preview">
-    <a href="/2017/12/20/cpp-boost-asio-tcp-example/">
-        <h2 class="post-title">            [c++] boost::asio tcp example
-        </h2>
-        
-        <h3 class="post-subtitle">
-            tcp server
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by gwonhyeong on December 20, 2017</p>
-</div>
-<hr>
+<h2 class="section-heading"><a href="https://start.spring.io/">Boot 프로젝트 생성</a></h2>
+<hr />
 
-<div class="post-preview">
-    <a href="/2017/10/29/ETC-vscode/">
-        <h2 class="post-title">            [ETC] vscode build setting
-        </h2>
-        
-        <h3 class="post-subtitle">
-            
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by gwonhyeong on October 29, 2017</p>
-</div>
-<hr>
+<p>다음 의존성 필요</p>
 
-<div class="post-preview">
-    <a href="/2017/09/30/ETC-Jekyll-Github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%8B%9C%EC%9E%91/">
-        <h2 class="post-title">            [ETC] Jekyll Blog 시작
-        </h2>
-        
-        <h3 class="post-subtitle">
-            블로그 시작
-        </h3>
-        
-    </a>
-    <p class="post-meta">Posted by gwonhyeong on September 30, 2017</p>
-</div>
-<hr>
+<figure class="highlight"><pre><code class="language-gradle" data-lang="gradle"><span class="n">compile</span><span class="o">(</span><span class="s1">'org.springframework.boot:spring-boot-starter-thymeleaf'</span><span class="o">)</span>
+<span class="n">compile</span><span class="o">(</span><span class="s1">'org.springframework.boot:spring-boot-starter-web'</span><span class="o">)</span></code></pre></figure>
+
+<hr />
+
+<h2><a href="https://www.npmjs.com/"> npm 설치</a></h2>
+<hr />
+
+<h2>디렉토리 구조 설정</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- root/backend : spring
+- root/frontend : vue
+</code></pre></div></div>
+<hr />
+
+<h2>Vue.js 프로젝트 생성및 동작 확인</h2>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--global</span> vue-cli
+<span class="nv">$ </span>vue init webpack frontend
+<span class="nv">$ </span><span class="nb">cd </span>frontend
+<span class="nv">$ </span>npm <span class="nb">install</span>
+<span class="nv">$ </span>npm run dev</code></pre></figure>
+
+<hr />
+
+<h2>Spring Vue.js 연동</h2>
+
+<p>출력 디렉토리 지정</p>
+
+<p>frontend/config/index.js</p>
+
+<figure class="highlight"><pre><code class="language-script" data-lang="script">...
+  build: {
+    // Template for index.html
+    index: path.resolve(__dirname, '../../backend/src/main/resources/templates/index.html'),
+
+    // Paths
+    assetsRoot: path.resolve(__dirname, '../../backend/src/main/resources/static/'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+...</code></pre></figure>
+
+<p>Add Controller - RootController.java</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">codex</span><span class="o">.</span><span class="na">mobile</span><span class="o">.</span><span class="na">manager</span><span class="o">.</span><span class="na">controllers</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.ui.Model</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RootController</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">viewIndex</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">"greeting"</span><span class="o">,</span> <span class="s">"Hello, world!"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">"index"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Build Vue</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>nbm run build</code></pre></figure>
+
+<p>Run Spring And Test!</p>
+
+<p><a href="#">
+    <img src="/img/2018_03_02/hello_vue.png" alt="" />
+</a></p>
+
+<p>Vue.js 스터디후 이후 진행</p>
+
+<hr />
 
 
-<!-- Pager -->
 
+                <hr>
 
-		</div>
-	</div>
-</div>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/03/01/web-Spring-Boot-MVC.1/" data-toggle="tooltip" data-placement="top" title="[web] Spring Boot MVC">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
 
 <hr>
 

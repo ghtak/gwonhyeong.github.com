@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-02T12:05:57+09:00</updated><id>http://localhost:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[Spring] Boot MVC</title><link href="http://localhost:4000/2018/03/01/Spring-Boot-MVC/" rel="alternate" type="text/html" title="[Spring] Boot MVC" /><published>2018-03-01T09:00:00+09:00</published><updated>2018-03-01T09:00:00+09:00</updated><id>http://localhost:4000/2018/03/01/[Spring] Boot MVC</id><content type="html" xml:base="http://localhost:4000/2018/03/01/Spring-Boot-MVC/">&lt;p&gt;Eclipse Spring Boot MVC 설정&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-02T16:08:21+09:00</updated><id>http://localhost:4000/</id><title>devlogs</title><subtitle>gwonhyeong's blog</subtitle><entry><title>[web] Spring Boot + Vue.js</title><link href="http://localhost:4000/2018/03/01/web-Boot-+-Vue.js/" rel="alternate" type="text/html" title="[web] Spring Boot + Vue.js" /><published>2018-03-01T09:00:00+09:00</published><updated>2018-03-01T09:00:00+09:00</updated><id>http://localhost:4000/2018/03/01/[web] Boot + Vue.js</id><content type="html" xml:base="http://localhost:4000/2018/03/01/web-Boot-+-Vue.js/">&lt;p&gt;Spring Boot + Vue.js 연동&lt;/p&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;&lt;a href=&quot;https://start.spring.io/&quot;&gt;Boot 프로젝트 생성&lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;다음 의존성 필요&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gradle&quot; data-lang=&quot;gradle&quot;&gt;&lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'org.springframework.boot:spring-boot-starter-thymeleaf'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'org.springframework.boot:spring-boot-starter-web'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;&lt;a href=&quot;https://www.npmjs.com/&quot;&gt; npm 설치&lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;디렉토리 구조 설정&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- root/backend : spring
+- root/frontend : vue
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;h2&gt;Vue.js 프로젝트 생성및 동작 확인&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; vue-cli
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vue init webpack frontend
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;frontend
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Spring Vue.js 연동&lt;/h2&gt;
+
+&lt;p&gt;출력 디렉토리 지정&lt;/p&gt;
+
+&lt;p&gt;frontend/config/index.js&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-script&quot; data-lang=&quot;script&quot;&gt;...
+  build: {
+    // Template for index.html
+    index: path.resolve(__dirname, '../../backend/src/main/resources/templates/index.html'),
+
+    // Paths
+    assetsRoot: path.resolve(__dirname, '../../backend/src/main/resources/static/'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Add Controller - RootController.java&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;codex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;mobile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;controllers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Controller&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.ui.Model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.web.bind.annotation.RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RootController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;viewIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;greeting&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;index&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Build Vue&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nbm run build&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Run Spring And Test!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;
+    &lt;img src=&quot;/img/2018_03_02/hello_vue.png&quot; alt=&quot;&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Vue.js 스터디후 이후 진행&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>gwonhyeong</name></author></entry><entry><title>[web] Spring Boot MVC</title><link href="http://localhost:4000/2018/03/01/web-Spring-Boot-MVC.1/" rel="alternate" type="text/html" title="[web] Spring Boot MVC" /><published>2018-03-01T09:00:00+09:00</published><updated>2018-03-01T09:00:00+09:00</updated><id>http://localhost:4000/2018/03/01/[web] Spring Boot MVC.1</id><content type="html" xml:base="http://localhost:4000/2018/03/01/web-Spring-Boot-MVC.1/">&lt;p&gt;Eclipse Spring Boot MVC 설정&lt;/p&gt;
 
 &lt;p&gt;프로젝트 설정및 DB 연동까지 작업 내용 기록&lt;/p&gt;
 
